@@ -1,5 +1,7 @@
 const express = require('express')
 const path = require('path')
+const request = require('request')
+const cheerio = require('cheerio')
 const PORT = process.env.PORT || 5000
 
 express()
