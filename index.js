@@ -5,7 +5,6 @@ var Crawler = {
 	init : function(){
 		Crawler.request = require('request');
 		Crawler.cheerio = require('cheerio');
-		Crawler.fs      = require('fs');
 		Crawler.getMovies();
 	},
 	getMovies: function(){
@@ -17,7 +16,6 @@ var Crawler = {
 				var title  = $(this).find('.titleColumn a').text().trim();
 				var rating = $(this).find('.imdbRating strong').text().trim();
 				console.log(title + ' - ' + rating);
-				Crawler.fs.appendFile('imdb.txt', title + ' - ' + rating + '\n');
 			});
 		});
 	}
