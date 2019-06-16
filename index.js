@@ -24,7 +24,7 @@ var c = new Crawler({
 });
  
 // Queue just one URL, with default callback
-c.queue("http://www.tudogostoso.com.br/receita/168837-bolo-de-mucilon.html");
+c.queue("https://morioh.com/p/b260ff42c61f/how-to-web-scraping-with-node-js-cheerio");
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
