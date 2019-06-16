@@ -26,10 +26,6 @@ var c = new Crawler({
 // Queue just one URL, with default callback
 c.queue("http://www.tudogostoso.com.br/receita/168837-bolo-de-mucilon.html");
 
-
-
-
-
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
