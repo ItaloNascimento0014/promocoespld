@@ -17,14 +17,14 @@ var c = new Crawler({
             var $ = res.$;
             // $ is Cheerio by default
             //a lean implementation of core jQuery designed specifically for the server
-          title =  $("h1").text();
+          title =  $("#footer").text();
         }
         done();
     }
 });
  
 // Queue just one URL, with default callback
-c.queue("https://morioh.com/p/b260ff42c61f/how-to-web-scraping-with-node-js-cheerio");
+c.queue("https://www.pelando.com.br");
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
