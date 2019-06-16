@@ -14,10 +14,7 @@ var c = new Crawler({
         if(error){
             console.log(error);
         }else{
-            var $ = res.$;
-            // $ is Cheerio by default
-            //a lean implementation of core jQuery designed specifically for the server
-          title =  console.log($("title").text());
+        	  title = $("h1").text();
         }
         done();
     }
