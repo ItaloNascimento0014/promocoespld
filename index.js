@@ -22,7 +22,7 @@ var c = new Crawler({
             $(".cept-tt.thread-link.linkPlain.thread-title--card").each((index,item)=>{
             arrProdutos.push($(item).html());
 })
-var title = JSON.stringify(arrProdutos);
+         title = JSON.stringify(arrProdutos);
            
      
         }
