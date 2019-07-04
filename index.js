@@ -17,7 +17,14 @@ var c = new Crawler({
             var $ = res.$;
             // $ is Cheerio by default
             //a lean implementation of core jQuery designed specifically for the server
-          title =  $("#footer").text();
+            
+            var arrProdutos = new Array();
+            $(".cept-tt.thread-link.linkPlain.thread-title--card").each((index,item)=>{
+            arrProdutos.push($(item).html());
+})
+var title = JSON.stringify(arrProdutos);
+           
+     
         }
         done();
     }
