@@ -23,7 +23,7 @@ var c = new Crawler({
             arrProdutos.push($(item).html());
 })
          title = JSON.stringify(arrProdutos);
-           
+         title = title.innerText.replace(/\\n\\t/g,"");  
      
         }
         done();
