@@ -31,7 +31,7 @@ var c = new Crawler({
 });
  
 // Queue just one URL, with default callback
-c.queue("https://www.pelando.com.br");
+c.queue("https://www.pelando.com.br/quente");
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
