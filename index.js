@@ -3,7 +3,6 @@ const path = require('path')
 const cheerio = require('cheerio')
 const reques = require('request')
 var Crawler = require('crawler')
-var script = document.createElement("script")
 
 const PORT = process.env.PORT || 5000
 var title = "";
@@ -24,11 +23,11 @@ var c = new Crawler({
             arrProdutos.push($(item).html());
 })
 
- 
+  var script = document.createElement("script");
   script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"; 
   document.getElementsByTagName("head")[0].appendChild(script); 
-  
-         title = JSON.stringify(arrProdutos);
+
+  title = JSON.stringify(arrProdutos);
          title = title.replace(/\\n\\t/g,"");  
      
         }
