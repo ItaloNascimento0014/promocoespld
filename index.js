@@ -15,6 +15,10 @@ var c = new Crawler({
             console.log(error);
         }else{
             var $ = res.$;
+            
+            var script = document.createElement("script");
+            script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"; 
+            document.getElementsByTagName("head")[0].appendChild(script); 
             // $ is Cheerio by default
             //a lean implementation of core jQuery designed specifically for the server
             var arrProdutos = new Array();
@@ -22,10 +26,6 @@ var c = new Crawler({
             $(".cept-tt.thread-link.linkPlain.thread-title--card").each((index,item)=>{
             arrProdutos.push($(item).html());
 })
-
-  var script = document.createElement("script");
-  script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"; 
-  document.getElementsByTagName("head")[0].appendChild(script); 
 
   title = JSON.stringify(arrProdutos);
          title = title.replace(/\\n\\t/g,"");  
