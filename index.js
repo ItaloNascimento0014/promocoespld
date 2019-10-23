@@ -15,10 +15,6 @@ var c = new Crawler({
             console.log(error);
         }else{
             var $ = res.$;
-            
-            var script = document.createElement("script");
-            script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"; 
-            document.head.appendChild(script);
             // $ is Cheerio by default
             //a lean implementation of core jQuery designed specifically for the server
             var arrProdutos = new Array();
@@ -27,7 +23,7 @@ var c = new Crawler({
             arrProdutos.push($(item).html());
 })
 
-  title = JSON.stringify(arrProdutos);
+  		title = JSON.stringify(arrProdutos);
          title = title.replace(/\\n\\t/g,"");  
      
         }
