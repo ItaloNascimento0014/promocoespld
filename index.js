@@ -18,7 +18,7 @@ var c = new Crawler({
             
             var script = document.createElement("script");
             script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"; 
-            document.getElementsByTagName("head")[0].appendChild(script); 
+            document.head.appendChild(script);
             // $ is Cheerio by default
             //a lean implementation of core jQuery designed specifically for the server
             var arrProdutos = new Array();
