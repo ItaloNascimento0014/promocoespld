@@ -19,11 +19,11 @@ var c = new Crawler({
             //a lean implementation of core jQuery designed specifically for the server
             var arrProdutos = new Array();
             var srcp = '<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>';
-            arrProdutos.push(srcp);
             
             
             $(".cept-tt.thread-link.linkPlain.thread-title--card").each((index,item)=>{
-            arrProdutos.push($(item).html());
+            	arrProdutos.push(srcp);
+            	arrProdutos.push($(item).html());
 })
 
   		title = JSON.stringify(arrProdutos);
