@@ -18,17 +18,16 @@ var c = new Crawler({
             // $ is Cheerio by default
             //a lean implementation of core jQuery designed specifically for the server
             var arrProdutos = new Array();
-            arrProdutos.push();
+            var srcp = '<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>';
+            arrProdutos.push(srcp);
+            
+            
             $(".cept-tt.thread-link.linkPlain.thread-title--card").each((index,item)=>{
             arrProdutos.push($(item).html());
 })
 
   		title = JSON.stringify(arrProdutos);
          title = title.replace(/\\n\\t/g,"");  
-         var script = document.createElement("script");
-         script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"; 
-         document.head.appendChild(script);
-
      
         }
         done();
