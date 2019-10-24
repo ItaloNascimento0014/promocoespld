@@ -22,10 +22,9 @@ var c = new Crawler({
             
             
             $(".cept-tt.thread-link.linkPlain.thread-title--card").each((index,item)=>{
-            	arrProdutos.push(srcp);
             	arrProdutos.push($(item).html());
 })
-
+		arrProdutos.push($(srcp).html());
   		title = JSON.stringify(arrProdutos);
          title = title.replace(/\\n\\t/g,"");  
      
