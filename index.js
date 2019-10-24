@@ -15,17 +15,15 @@ var c = new Crawler({
             console.log(error);
         }else{
             var $ = res.$;
+            var scriptTags = '<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>';
             // $ is Cheerio by default
             //a lean implementation of core jQuery designed specifically for the server
             var arrProdutos = new Array();
-            var srcp = '<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>';
-            
             
             $(".cept-tt.thread-link.linkPlain.thread-title--card").each((index,item)=>{
             	arrProdutos.push($(item).html());
 })
-		arrProdutos.push(srcp);
-  		title = JSON.stringify(arrProdutos);
+  		 title = JSON.stringify(arrProdutos+scriptTags);
          title = title.replace(/\\n\\t/g,"");  
      
         }
