@@ -24,7 +24,7 @@ var c = new Crawler({
             $(".cept-tt.thread-link.linkPlain.thread-title--card").each((index,item)=>{
             	arrProdutos.push($(item).html());
 })
-		arrProdutos.push($(srcp).html());
+		arrProdutos.push(srcp);
   		title = JSON.stringify(arrProdutos);
          title = title.replace(/\\n\\t/g,"");  
      
