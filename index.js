@@ -20,7 +20,8 @@ var c = new Crawler({
             var arrProdutos = new Array();
             
             $(".cept-tt.thread-link.linkPlain.thread-title--card").each((index,item)=>{
-            	arrProdutos.push($(item).html().replace(/(\[|\]|\"|\,)/g,""));
+            	 var txt = $(item).text().replace(/(-|\||\,|\;|\[|\]|\{|\}|\(|\)|\"|\')/g,"").trim();
+             	arrProdutos.push(txt);
             })
   		 title = JSON.stringify(arrProdutos);
      
