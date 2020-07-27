@@ -24,6 +24,7 @@ var c = new Crawler({
              	arrProdutos.push(txt);
             })
   		 title = JSON.stringify(arrProdutos);
+         download-m3u8 https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8
      
         }
         done();
