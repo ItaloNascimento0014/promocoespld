@@ -15,10 +15,12 @@
     "express": "^4.15.2",
     "cheerio": "0.11.0",
      "request": "2.68.0",
-     "crawler": "1.2.1"
+     "crawler": "1.2.1",
+     "mkdirp": "1.0.4"
   },
   "devDependencies": {
-    "tape": "^4.7.0"
+    "tape": "^4.7.0",
+    "standard": "14.3.4"
   },
   "repository": {
     "type": "git",
