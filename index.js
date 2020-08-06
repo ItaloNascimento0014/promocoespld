@@ -36,7 +36,7 @@ var re = /\}\,\]/g;
 conc += "]";
 var result = re.exec(conc);
 conc = conc.replace(re, "}]");
-var strJson = JSON.stringify(conc);     
+    
         }
         done();
     }
@@ -50,5 +50,5 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   //.get('/', (req, res) => res.render('pages/index'))
-  .get('/', (req, res) => res.send(strJson))
+  .get('/', (req, res) => res.send(conc))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
