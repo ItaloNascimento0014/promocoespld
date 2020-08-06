@@ -24,7 +24,7 @@ $("article").each((ind,it)=>{
     var descricaoProduto = $(it).find(".cept-tt.thread-link").text().replace(/(-|\||\,|\;|\[|\]|\{|\}|\(|\)|\"|\')/g, "").trim();
     var precoProduto = $(it).find(".thread-price").text().trim();
     if (descricaoProduto != "") {
-        obj.descricaoProduto = descricaoProduto;
+        obj.descricaoProduto = descricaoProduto + "##";
         obj.precoProduto = precoProduto;
         var jsonString = JSON.stringify(obj);
         conc += jsonString + ",";
@@ -33,10 +33,11 @@ $("article").each((ind,it)=>{
 )
 
 var re = /\}\,\]/g;
+var reMoney = /R\$(\d{1,10}|\d{1,3}\.\d{1,3})##/g;            
 conc += "]";
 var result = re.exec(conc);
-conc = conc.replace(re, "}]");
-    
+var resultMon = reMoney.exec(conc);
+conc = conc.replace(re, "}]").replace(reMoney,"");    
         }
         done();
     }
