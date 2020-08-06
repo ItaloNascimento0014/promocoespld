@@ -17,14 +17,26 @@ var c = new Crawler({
             var $ = res.$;
             // $ is Cheerio by default
             //a lean implementation of core jQuery designed specifically for the server
-            var arrProdutos = new Array();
-            
-            $(".cept-tt.thread-link.linkPlain.thread-title--card").each((index,item)=>{
-            	 var txt = $(item).text().replace(/(-|\||\,|\;|\[|\]|\{|\}|\(|\)|\"|\')/g,"").trim();
-             	arrProdutos.push(txt);
-            })
-  		 title = JSON.stringify(arrProdutos);
-     
+           var conc = "["
+
+        $("article").each((ind,it)=>{
+            var obj = new Object();
+            var descricaoProduto = $(it).find(".cept-tt.thread-link").text().replace(/(-|\||\,|\;|\[|\]|\{|\}|\(|\)|\"|\')/g, "").trim();
+            var precoProduto = $(it).find(".thread-price").text().trim();
+            if (descricaoProduto != "") {
+                obj.descricaoProduto = descricaoProduto;
+                obj.precoProduto = precoProduto;
+                var jsonString = JSON.stringify(obj);
+                conc += jsonString + ",";
+            }
+     }
+)
+
+var re = /\}\,\]/g;
+conc += "]";
+var result = re.exec(conc);
+conc = conc.replace(re, "}]");
+var strJson = JSON.stringify(conc);     
         }
         done();
     }
@@ -38,5 +50,5 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   //.get('/', (req, res) => res.render('pages/index'))
-  .get('/', (req, res) => res.send(title))
+  .get('/', (req, res) => res.send(strJson))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
