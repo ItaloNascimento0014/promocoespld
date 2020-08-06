@@ -33,11 +33,12 @@ $("article").each((ind,it)=>{
 )
 
 var re = /\}\,\]/g;
-var reMoney = /R\$(\d{1,10}|\d{1,3}\.\d{1,3})##/g;            
+var reMoney = /R\$(\d{1,10}|\d{1,3}\.\d{1,3})##/g;
+var reHashtag = /##/g;            
 conc += "]";
 var result = re.exec(conc);
 var resultMon = reMoney.exec(conc);
-conc = conc.replace(re, "}]").replace(reMoney,"").replace("##","");    
+conc = conc.replace(re, "}]").replace(reMoney,"").replace(reHashtag,"");    
         }
         done();
     }
