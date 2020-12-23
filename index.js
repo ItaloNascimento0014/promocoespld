@@ -3,8 +3,8 @@ const path = require('path')
 const cheerio = require('cheerio')
 const reques = require('request')
 var Crawler = require('crawler')
-const React = require('react')
-const ReactDOM = require('react-dom')
+
+var reactPage = require('./reactpage')
 
 const PORT = process.env.PORT || 5000
 var title = "";
@@ -45,15 +45,13 @@ conc = conc.replace(re, "}]").replace(reMoney,"").replace(reHashtag,"");
         done();
     }
 });
-
-const element = <h1>Hello, world</h1>;
-ReactDOM.render(element, document.getElementsByTagName('body'));
  
 // Queue just one URL, with default callback
 c.queue("https://www.pelando.com.br/quente");
 
 express()
-  .use(express.static(path.join(__dirname, 'public')))
+    .use(express.static(path.join(__dirname, 'public')))
+    .use('/reactpage', reactPage) 
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   //.get('/', (req, res) => res.render('pages/index'))
