@@ -46,10 +46,8 @@ conc = conc.replace(re, "}]").replace(reMoney,"").replace(reHashtag,"");
     }
 });
 
-ReactDOM.render(
-    <h1>Olá</h1>
-
-)
+const element = <h1>Hello, world</h1>;
+ReactDOM.render(element, document.getElementsByTagName('body'));
  
 // Queue just one URL, with default callback
 c.queue("https://www.pelando.com.br/quente");
