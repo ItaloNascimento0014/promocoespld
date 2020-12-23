@@ -15,7 +15,11 @@
     "express": "^4.15.2",
     "cheerio": "0.11.0",
      "request": "2.68.0",
-     "crawler": "1.2.1"
+    "crawler": "1.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "web-vitals": "^1.0.1"
   },
   "devDependencies": {
     "tape": "^4.7.0"
