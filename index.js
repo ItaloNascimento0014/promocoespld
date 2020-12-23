@@ -3,6 +3,8 @@ const path = require('path')
 const cheerio = require('cheerio')
 const reques = require('request')
 var Crawler = require('crawler')
+const React = require('react')
+const ReactDOM = require('react-dom')
 
 const PORT = process.env.PORT || 5000
 var title = "";
@@ -43,6 +45,11 @@ conc = conc.replace(re, "}]").replace(reMoney,"").replace(reHashtag,"");
         done();
     }
 });
+
+ReactDOM.render(
+    <h1>Olá</h1>
+
+)
  
 // Queue just one URL, with default callback
 c.queue("https://www.pelando.com.br/quente");
