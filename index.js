@@ -3,8 +3,10 @@ const path = require('path')
 const cheerio = require('cheerio')
 const reques = require('request')
 var Crawler = require('crawler')
-
 var reactPage = require('./reactpage')
+
+var React = require('react');
+var ReactDOMServer = require('react-dom/server');
 
 const PORT = process.env.PORT || 5000
 var title = "";
@@ -45,6 +47,15 @@ conc = conc.replace(re, "}]").replace(reMoney,"").replace(reHashtag,"");
         done();
     }
 });
+
+class MyComponent extends React.Component {
+    render() {
+        return <div>Hello World</div>;
+    }
+}
+
+var el = ReactDOMServer.renderToString(<MyComponent />);
+
  
 // Queue just one URL, with default callback
 c.queue("https://www.pelando.com.br/quente");
@@ -55,5 +66,5 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   //.get('/', (req, res) => res.render('pages/index'))
-  .get('/', (req, res) => res.send(conc))
+  .get('/', (req, res) => res.send(el))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
