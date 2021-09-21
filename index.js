@@ -19,13 +19,7 @@ var c = new Crawler({
             //a lean implementation of core jQuery designed specifically for the server
             var arrProdutos = new Array();
             
-            var tagsA = document.querySelectorAll(".container")[3].children[0].children[0].children;
-
-            for (x of tagsA){
-                arrProdutos.push(x.innerText.replace(/(-|\||\,|\;|\[|\]|\{|\}|\(|\)|\"|\')/g,"").trim());
-            }
-      
-  		 title = JSON.stringify(arrProdutos);
+          title = "aa";
      
         }
         done();
