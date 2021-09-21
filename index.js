@@ -22,7 +22,7 @@ var c = new Crawler({
             var tagsA = document.querySelectorAll(".container")[3].children[0].children[0].children;
 
             for (x of tagsA){
-                arrProdutos.push(x.innerText);
+                arrProdutos.push(x.innerText.replace(/(-|\||\,|\;|\[|\]|\{|\}|\(|\)|\"|\')/g,"").trim());
             }
       
   		 title = JSON.stringify(arrProdutos);
