@@ -19,10 +19,12 @@ var c = new Crawler({
             //a lean implementation of core jQuery designed specifically for the server
             var arrProdutos = new Array();
             
-            $(".cept-tt.thread-link.linkPlain.thread-title--card").each((index,item)=>{
-            	 var txt = $(item).text().replace(/(-|\||\,|\;|\[|\]|\{|\}|\(|\)|\"|\')/g,"").trim();
-             	arrProdutos.push(txt);
-            })
+            var tagsA = document.querySelectorAll(".container")[3].children[0].children[0].children;
+
+            for (x of tagsA){
+                arrProdutos.push(x.innerText);
+            }
+      
   		 title = JSON.stringify(arrProdutos);
      
         }
@@ -31,7 +33,7 @@ var c = new Crawler({
 });
  
 // Queue just one URL, with default callback
-c.queue("https://www.pelando.com.br/quente");
+c.queue("https://www.pelando.com.br/cupons-de-descontos/pt.aliexpress.com#promocoes");
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
